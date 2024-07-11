@@ -1,6 +1,6 @@
-# Node - List Queue Members Tutorial
+# Node - List Queue Members How-To Guide
 
-This project serves as a guide to help you build an application with FreeClimb. View this tutorial on [FreeClimb.com](https://docs.freeclimb.com/docs/list-queue-members#section-nodejs). Specifically, the project will:
+This project serves as a guide to help you build an application with FreeClimb. View this how-to guide on [FreeClimb.com](https://docs.freeclimb.com/docs/list-queue-members#section-nodejs). Specifically, the project will:
 
 - List the callers that are members of the specified queue   
 
@@ -8,7 +8,7 @@ This project serves as a guide to help you build an application with FreeClimb. 
 
 To get started using a FreeClimb account, follow the instructions [here](https://docs.freeclimb.com/docs/getting-started-with-freeclimb).
 
-## Setting up the Tutorial
+## Setting up the how-to guide
 
 1. Install the node packages necessary using command:
 
@@ -16,7 +16,7 @@ To get started using a FreeClimb account, follow the instructions [here](https:/
    $ yarn install
    ```
 
-2. Configure environment variables (this tutorial uses the [dotenv package](https://www.npmjs.com/package/dotenv)).
+2. Configure environment variables (this how-to guide uses the [dotenv package](https://www.npmjs.com/package/dotenv)).
 
    | ENV VARIABLE            | DESCRIPTION                                                                                                                                                                             |
    | ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -25,7 +25,7 @@ To get started using a FreeClimb account, follow the instructions [here](https:/
 
 3. Provide a value for the variable `queueId` which is the id of the queue you wish to list the members of. To learn more about queue go [here](https://docs.freeclimb.com/reference/call-queues).
 
-## Runnning the Tutorial
+## Runnning the how-to guide
 
 1. Run the application using command:
 
@@ -33,6 +33,6 @@ To get started using a FreeClimb account, follow the instructions [here](https:/
    $ node listMembers.js
    ```
 
-## Getting Help
+## Getting help
 
 If you are experiencing difficulties, [contact support](https://freeclimb.com/support).
