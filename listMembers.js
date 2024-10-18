@@ -3,28 +3,24 @@ const freeclimbSDK = require('@freeclimb/sdk')
 
 const accountId = process.env.ACCOUNT_ID
 const apiKey = process.env.API_KEY
-// your freeclimb API key (available in the Dashboard) - be sure to set up environment variables to store these values
-const freeclimb = freeclimbSDK(accountId, apiKey)
+const configuration = freeclimbSDK.createConfiguration({ accountId, apiKey })
+const freeclimb = new freeclimbSDK.DefaultApi(configuration)
 
 getMembers(queueId).then(members => {
-  // Use queue members
+  console.log('got queue members', members)
 }).catch(err => {
-  // Catch Errors
+  console.log(err)
 })
 
 async function getMembers(queueId) {
-  // Create array to store all members 
   const members = []
-  // Invoke GET method to retrieve initial list of members information
-  const first = await freeclimb.api.queues.members(queueId).getList()
-  members.push(...first.queueMembers)
-  // Get Uri for next page
-  let nextPageUri = first.nextPageUri
-  // Retrieve entire members list 
-  while (nextPageUri) {
-    const nextPage = await freeclimb.api.queues.members(queueId).getNextPage(nextPageUri)
-    members.push(...nextPage.queueMembers)
-    nextPageUri = nextPage.nextPageUri
+
+  let response = await freeclimb.listMembers()
+  members.push(...response.queueMembers)
+
+  while (response.nextPageUri) {
+    response = await freeclimb.getNextPage(response)
+    members.push(...response.queueMembers)
   }
   return members
 }
